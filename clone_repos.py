@@ -4,7 +4,7 @@ import os
 import subprocess
 from multiprocessing import Pool
 
-LOCAL_DIRECTORY = "hf_public_repos"
+LOCAL_DIRECTORY = "training_repos"
 
 
 def mirror_repository(repository):
