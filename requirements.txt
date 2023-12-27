@@ -1,4 +1,7 @@
 datasets
 nbformat
 pandas
+peft
+torch
 tqdm
+transformers
