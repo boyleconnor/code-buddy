@@ -30,8 +30,9 @@ import fim
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_path", type=str, default="bigcode/starcoderplus")
-    parser.add_argument("--dataset_name", type=str, default="smangrul/hf-stack-v1")
-    parser.add_argument("--subset", type=str, default="data")
+    # parser.add_argument("--dataset_name", type=str, default="smangrul/hf-stack-v1")
+    parser.add_argument("--data_file", type=str)
+    # parser.add_argument("--subset", type=str, default="data")
     parser.add_argument("--split", type=str, default="train")
     parser.add_argument("--size_valid_set", type=int, default=4000)
     parser.add_argument("--test_size", type=float, default=0.005)
@@ -199,8 +200,9 @@ class ConstantLengthDataset(IterableDataset):
 
 def create_datasets(tokenizer, args):
     dataset = load_dataset(
-        args.dataset_name,
-        data_dir=args.subset,
+        "csv",
+        # data_dir=args.subset,
+        data_files=args.data_file,
         split=args.split,
         use_auth_token=True,
         num_proc=args.num_workers if not args.streaming else None,

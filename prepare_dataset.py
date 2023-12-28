@@ -123,4 +123,4 @@ def read_repository_files(directory) -> pd.DataFrame:
 if __name__ == "__main__":
     df = read_repository_files(LOCAL_DIRECTORY)
     print("DataFrame created, creating dataset...")
-    df.to_csv(OUTPUT_FILE)
+    Dataset.from_pandas(df).to_csv(OUTPUT_FILE)
